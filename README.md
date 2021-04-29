@@ -35,6 +35,10 @@ By default, these are:
 - 500 - 700: yellow
 - 700 - 900: red
 
+These numbers seems somewhat arbitrary, because they are the analog values returned by the sensor.
+I couldn't come up with a formula for converting these to decibels, that produced results I agreed with.
+As such, an end user of the software would need
+
 Configuration steps to change the thresholds:
 
 1. Press '#' on the keypad. This puts the device in listening mode.
@@ -43,6 +47,18 @@ Configuration steps to change the thresholds:
 4. Repeat steps 2-3 for two more numbers.
 5. Repeat step 2 for a fourth number, but press '#' to finish the sequence.
 6. The light will cycle through the 3 colors a few times to indicate that _something_ happened.
+
+## Further Development
+
+For a real world application, the software would need to be made easier to interact with.
+This system with the keypad is fine for me, but onboarding additional users would get time consuming very quickly.
+
+In an ideal situation, I would have some kind of webapp hosted on a Raspberry Pi.
+This webapp would allow the user to adjust the noise gates more easily,
+by sending serial instructions to the Arduino.
+The biggest forseen issue with this implementation, however, is that the target use case for the product is schools.
+Network admins of such public spaces tend to not appreciate rogue access poitns or random devices hosting webservers.
+The next best alternative would be to host the server on an adhoc bluetooth network, which is much easier said than done.
 
 ## Additional Details
 
